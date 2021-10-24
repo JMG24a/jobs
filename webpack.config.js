@@ -1,7 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const webpackDevServer = require('webpack-dev-server');
 
 module.exports = {
+    mode: 'production',
     entry:{
         index: './src/index.js',
     },
@@ -11,8 +13,11 @@ module.exports = {
         //dev filename: '[name].bundle.js'
     },
     module:{
-        rules:[
-            { test: /\.js$/i, use: 'babel-loader'},
+        rules:[{
+            test: /\.m?js$/i,
+            exclude: /node_modules/,
+            use: {loader: 'babel-loader'},
+        },
         ]
     },
     plugins:[

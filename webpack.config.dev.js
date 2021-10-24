@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
+    mode: 'development',
     entry:{
         index: './src/index.js',
     },
@@ -10,10 +11,21 @@ module.exports = {
         //filename: '[name][contenthash].bundle.js' production
        filename: '[name].bundle.js'
     },
+    devServer:{
+        static: {
+            directory: path.join(__dirname, 'dist')
+        },
+        compress: true,
+        historyApiFallback: true,
+        port: 3000,
+    },
     module:{
-        rules:[
-            { test: /\.js$/i, use: 'babel-loader'},
-        ]
+        rules:[{
+            test: /\.m?js$/i,
+            exclude: /node_modules/,
+            use: {loader: 'babel-loader'},
+        },
+        ],
     },
     plugins:[
         new HtmlWebpackPlugin({
