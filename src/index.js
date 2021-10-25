@@ -11,6 +11,8 @@ const jose = new Programmer({
 });*/
 
 /*
+import Lawyer from './Lawyer'
+
 const victor = new Lawyer({
     name: 'victor',
     lastName: 'morales',
@@ -35,4 +37,21 @@ const yoana = new Doctor({
     title: "FactoriaDeMedicina",
 });*/
 
+import Backend from "./Backend";
 
+const jose = new Backend({
+    name: 'Jose',
+    lastName: 'morales',
+    age: '21',
+    gender: 'masculino',
+    experience: '1 año',
+    yearsWork: '0 años',
+    title: 'platzi',
+    tools: ['jS', 'webpack', 'css', 'sass'],
+    asigServer: 'port',
+    asigLeguage: 'go',
+    asigBaseData: 2,
+    asigProject: 2,
+});
+jose.project();
+console.log(jose)

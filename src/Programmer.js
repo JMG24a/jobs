@@ -1,27 +1,21 @@
 import Job from "./Job";
 
-function Programmer({
+function Programmer(
     name,
     lastName,
     age,
-    gender,
-    experience = {},
+    gender, 
+    experience,
     yearsWork,
     title,
     tools = [],
-}){
-    Job.call(this,
-        name,
-        lastName,
-        age,
-        gender
-    );
+){
+    Job.call(this,name,lastName,age,gender);
     this.experience = experience;
     this.yearsWork = yearsWork;
     this.title = title;
     this.tools = tools;
     //Methods
-    //usando el block scoupe
     this.programar = () => {
         console.log(`${this.title}`);
     };
