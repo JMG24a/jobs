@@ -37,6 +37,7 @@ const yoana = new Doctor({
     title: "FactoriaDeMedicina",
 });*/
 
+/*
 import Backend from "./Backend";
 
 const jose = new Backend({
@@ -54,4 +55,23 @@ const jose = new Backend({
     asigProject: 2,
 });
 jose.project();
+console.log(jose) */
+
+import Frontend from "./Frontend";
+
+const jose = new Frontend({
+    name: 'Jose',
+    lastName: 'morales',
+    age: '21',
+    gender: 'masculino',
+    experience: '1 año',
+    yearsWork: '0 años',
+    title: 'platzi',
+    tools: ['jS', 'webpack', 'css', 'sass'],
+    asigAPI: null,
+    asigLeguage: null,
+    asigBaseData: null,
+    asigProject: null,
+});
+jose.asignarTrabajo()
 console.log(jose)
