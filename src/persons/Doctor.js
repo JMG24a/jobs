@@ -1,6 +1,6 @@
 import Job from './Job'
 
-function Doctor({
+function Doctor(
     name,
     lastName,
     age,
@@ -9,7 +9,7 @@ function Doctor({
     numeroPacientes,
     pacientesRecuperados = [],
     title,
-}){
+){
     Job.call(this, name, lastName, age, gender);
     this.horasTurno = horasTurno;
     this.numeroPacientes = numeroPacientes;

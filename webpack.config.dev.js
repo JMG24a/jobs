@@ -27,6 +27,11 @@ module.exports = {
         },
         ],
     },
+    resolve:{
+        alias:{
+            Persons: path.resolve(__dirname, 'src/persons/'),
+        },
+    },
     plugins:[
         new HtmlWebpackPlugin({
             template: './public/index.html'

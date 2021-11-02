@@ -1,6 +1,6 @@
 import Job from "./Job";
 
-function Lawyer({
+function Lawyer(
     name,
     lastName,
     age,
@@ -10,7 +10,7 @@ function Lawyer({
     reputacion = 0,
     yearsWork = 0,
     title,
-}){
+){
     Job.call(this, name, lastName, age, gender);
     this.firma = firma;
     this.casos = casos;
