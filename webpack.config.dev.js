@@ -30,7 +30,7 @@ module.exports = {
     },
     resolve:{
         alias:{
-            Persons: path.resolve(__dirname, 'src/persons/'),
+            Persons: path.resolve(__dirname, 'src/models/'),
         },
     },
     plugins:[
