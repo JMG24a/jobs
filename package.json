@@ -17,7 +17,9 @@
   "author": "Jose Morales",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-myconnection": "^1.0.4",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",

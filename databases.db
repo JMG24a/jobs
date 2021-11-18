@@ -1,0 +1,8 @@
+#crear base de datos
+CREATE DATABASE jobs;
+
+#asignar tabla a usar
+use jobs;
+
+#crear tabla en la base de datos
+CREATE TABLE job;
