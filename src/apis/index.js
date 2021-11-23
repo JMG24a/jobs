@@ -1,21 +1,13 @@
 const { Router } = require('express');
 const router = Router();
+const jobController = require('../controllers/jobController');
 
-router.get('/', (req, res) => {
-    
-})
+router.get('/', jobController.selectAll);
 
-router.post('/', (req, res) => {
-    console.log(req.body)
-    res.send('guardado')
-})
+router.post('/', jobController.insert)
 
-router.put('/:id', (req, res) => {
+router.put('/:id', jobController.edit)
 
-})
-
-router.delete('/:id', (req, res) => {
-
-})
+router.delete('/:id', jobController.delete)
 
 module.exports = router;
