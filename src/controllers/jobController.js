@@ -1,23 +1,18 @@
 const job = {};
 
 job.selectAll = (req, res) => {
-    async function asyncFunction() {
-        let conn;
-        try {
-          conn = await pool.getConnection();
-          const rows = await conn.query("SELECT * FROM user");
-          rows.forEach((rows) => {
-            console.log(rows)
-        }) //[ {val: 1}, meta: ... ]
-      
-        } catch (err) {
-          throw err;
-        } finally {
-          if (conn) return conn.end();
-        }
+  req.getConnection((err,conn)=>{
+    if(err){
+      console.log(err);
+    }
+    conn.query('SELECT * FROM user', (err, rows) =>{
+      if(err){
+        console.log(err);
       }
-      asyncFunction();
-      return 0;
+      console.log(rows[0].nombre);
+      res.json(rows)
+    });
+  })
 };
 
 job.insert = (req, res) => {

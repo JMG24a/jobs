@@ -2,7 +2,8 @@
 const express = require('express'); // iniciar express
 const app = express();
 const morgan = require('morgan'); //visualizar las peticiones
-const mariaDB = require('mariadb'); // db para la aplicaion
+const mysql = require('mysql'); // db para la aplicaion
+const exp_mysql_connection = require('express-myconnection')
 const webpack = require('webpack'); // el empaquetador
 const webpackDevMiddleware = require('webpack-dev-middleware');//sirve para conectar express con webpack 
 /*developer*/const webpackConfig = require('./webpack.config.dev');//direccion de mi archivo webpack de config
@@ -25,7 +26,13 @@ app.use(express.json());//expresamos que estaremos enviando json`s
 
 //middlewares
 app.use(morgan('dev'));//sirve para ver la peticiones "http" a la app
-
+app.use(exp_mysql_connection(mysql,{
+    host: 'localhost', 
+    user:'jmg24a', 
+    database: 'jobsDB',
+    password: 'Mysql.jmgy24',
+    connectionLimit: 5
+},'single'));
 
 
 
