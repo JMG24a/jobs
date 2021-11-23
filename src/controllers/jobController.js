@@ -1,11 +1,3 @@
-const mariadb = require('mariadb');
-const pool = mariadb.createPool({
-     host: 'localhost', 
-     user:'jmg24a', 
-     password: 'Mysql.jmgy24',
-     connectionLimit: 5
-});
-
 const job = {};
 
 job.selectAll = (req, res) => {
