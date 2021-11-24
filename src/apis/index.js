@@ -4,10 +4,10 @@ const jobController = require('../controllers/jobController');
 
 router.get('/', jobController.selectAll);
 
-router.post('/', jobController.insert)
+router.post('/', jobController.insert);
 
-router.put('/:id', jobController.edit)
+router.post('/update/:id', jobController.put);
 
-router.delete('/:id', jobController.delete)
+router.get('/delete/:id', jobController.delete);
 
 module.exports = router;
