@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
+
+
 module.exports = {
     mode: 'development',
     entry:{
@@ -26,6 +28,10 @@ module.exports = {
             exclude: /node_modules/,
             use: {loader: 'babel-loader'},
         },
+        {
+            test: /\.s[ac]ss$/i,
+            use: ['style-loader', 'css-loader', 'sass-loader']
+        }
         ],
     },
     resolve:{

@@ -1,0 +1,9 @@
+extends ./templates/head.pug
+include ./templates/header.pug 
+block main
+    main.main-container 
+        section.container-cars
+            each value in data
+                include ./templates/card.pug
+
+include ./templates/footer.pug

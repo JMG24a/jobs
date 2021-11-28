@@ -6,9 +6,10 @@ const mysql = require('mysql'); // db para la aplicaion
 const exp_mysql_connection = require('express-myconnection')
 const webpack = require('webpack'); // el empaquetador
 const webpackDevMiddleware = require('webpack-dev-middleware');//sirve para conectar express con webpack 
-/*developer*/const webpackConfig = require('./webpack.config.dev');//direccion de mi archivo webpack de config
-/*production*/ //const webpackConfig = require('./webpack.config.dev');
-const routerJob = require('./src/apis/index'); //asignando la direccion del router
+/*developer*/ const webpackConfig = require('./webpack.config.dev');//direccion de mi archivo webpack de config
+/*production*/ //const webpackConfig = require('./webpack.config');
+const routerJob = require('./src/router/index.js');
+const routerJobApi = require('./src/router/api'); //asignando la direccion del router
 
 
 
@@ -25,6 +26,8 @@ app.use(express.json());//expresamos que estaremos enviando json`s
 
 
 //middlewares
+app.set('view engine', 'pug');
+app.set('views', './src/views');
 app.use(morgan('dev'));//sirve para ver la peticiones "http" a la app
 app.use(exp_mysql_connection(mysql,{
     host: 'localhost', 
@@ -38,7 +41,8 @@ app.use(exp_mysql_connection(mysql,{
 
 
 //Router
-app.use('/api/jobs',routerJob); //router API jobs
+app.use('/', routerJob); //router rutas index
+app.use('/api/jobs',routerJobApi); //router API jobs
 
 
 
