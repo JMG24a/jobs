@@ -1,4 +1,6 @@
 node_modules
 dist
-.env
-databases.sql
+env.js
+db
+css
+sass
