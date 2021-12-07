@@ -1,9 +1,41 @@
-extends ./templates/head.pug
+-
+    const config = {
+        title : "Jobs",
+        style : "/css/index.css"
+
+    }      
+include ./templates/head.pug
 include ./templates/header.pug 
 block main
-    main.main-container 
-        section.container-cars
+    main.main__container 
+        h2.main__title Trabajadores Actuales
+        div.main__containerButtom__formInactive#addForm
+            p.main__descriptionButton Agrega nuevos empleados a la empresa
+            button.buttonAgregarForm#buttonAddForm +
+            template#templateAddForm
+                div.container__form#containerForm
+                    form(action="/home", method="post" class="formActive") 
+                        label(for="nombre") Nombre y Apellido: 
+                        input(type="text" name="nombre" placeholder="Nombre" id="nombre") 
+                        
+                        label(for="correo") Correo
+                        input(type="text" id="correo" name="correo" placeholder="123@correo.com" )
+
+                        select(label="Puestos" name="Puesto")
+                            option(label="Medico"  value="medico" )
+                            option(label="Programador"  value="programmer")
+                            option(label="Abogado"  value="lawyer")
+
+                        label(for="sexoM") Hombre: 
+                        input(type="radio" class="inputRadio" id="sexoM" name="sexo" value="Masculino") 
+                        label(for="sexoF") Mujer: 
+                        input(type="radio" class="inputRadio" id="sexoF" name="sexo" value="Femenino")
+                        label(for="edad" class="labelNumber") Edad: 
+                        input(type="number" class="inputNumber" id="edad" name="edad" placeholder="00")
+                        input(type="submit" class="inputSubmit")
+        section.main__sectionCards
             each value in data
                 include ./templates/card.pug
 
 include ./templates/footer.pug
+script(src="/js/formAdd.js")
