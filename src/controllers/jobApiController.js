@@ -17,7 +17,7 @@ jobApiController.selectAll = (req, res) => {
 };
 
 jobApiController.insert = (req, res) => {
-  data = req.body;
+  const data = req.body;
   req.getConnection((err, conn) =>{
     if(err){
       console.log(err);
