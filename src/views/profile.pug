@@ -1,0 +1,30 @@
+-
+    const config = {
+        title : "Profile",
+        style : "/css/profile.css"
+    }   
+include ./templates/head.pug
+block header
+    include ./templates/header.pug
+
+block main
+    main.main__container
+        div.main__sectionProfile
+            h2.main__title Informacion Basica
+                    section.profile__container
+                        div.card__profile
+                            span.iconProfile
+                            h3.card__titleProfile Informacion Personal
+                            each value in data
+                                p= `Nombre: ${value.name}`
+                                p= `Correo: ${value.email}`
+                                p= `Edad: ${value.age}`
+                                p= `Puesto: ${value.job}`
+
+
+
+           
+
+block footer
+    include ./templates/footer.pug
+

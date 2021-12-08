@@ -1,7 +1,10 @@
 div.card__container
-    div.card__imgName
-        div.card__img
     div.card__info
-        p= `nombre: ${value.nombre}`
+        p= `nombre: ${value.name}`
+        p= `edad: ${value.age}`
+        p= `Email: ${value.email}`
         p= `profecion: ${value.job}`
-        p= `edad: ${value.edad}`
+    div.card__opt
+        a(href=`/profile/${value.id}` class="iconProfile")
+        a(href="" class="iconEdit")
+        a(href="" class="iconDelete")

@@ -6,4 +6,6 @@ router.get('/home', jobController.home);
 
 router.post('/home', jobController.insert);
 
+router.get('/profile/:id', jobController.profile);
+
 module.exports = router;

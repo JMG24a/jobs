@@ -2,10 +2,11 @@
     const config = {
         title : "Jobs",
         style : "/css/index.css"
-
     }      
 include ./templates/head.pug
-include ./templates/header.pug 
+block header
+    include ./templates/header.pug 
+    
 block main
     main.main__container 
         h2.main__title Trabajadores Actuales
@@ -15,27 +16,36 @@ block main
             template#templateAddForm
                 div.container__form#containerForm
                     form(action="/home", method="post" class="formActive") 
-                        label(for="nombre") Nombre y Apellido: 
-                        input(type="text" name="nombre" placeholder="Nombre" id="nombre") 
                         
-                        label(for="correo") Correo
-                        input(type="text" id="correo" name="correo" placeholder="123@correo.com" )
+                        label(for="name") Nombre y Apellido: 
+                        input(type="text" name="name" placeholder="Nombre" id="name") 
+                                
+                        label(for="email") Correo:
+                        input(type="text" id="email" name="email" placeholder="example@correo.com")
 
-                        select(label="Puestos" name="Puesto")
+                        label(for="job") Puesto:
+                        select(label="Puestos" name="job" id="job")
                             option(label="Medico"  value="medico" )
                             option(label="Programador"  value="programmer")
                             option(label="Abogado"  value="lawyer")
-
+                        
                         label(for="sexoM") Hombre: 
                         input(type="radio" class="inputRadio" id="sexoM" name="sexo" value="Masculino") 
                         label(for="sexoF") Mujer: 
                         input(type="radio" class="inputRadio" id="sexoF" name="sexo" value="Femenino")
-                        label(for="edad" class="labelNumber") Edad: 
-                        input(type="number" class="inputNumber" id="edad" name="edad" placeholder="00")
-                        input(type="submit" class="inputSubmit")
+                        
+                        label(for="age" class="labelNumber") Edad: 
+                        input(type="number" class="inputNumber" id="age" name="age" placeholder="00")
+                    
+                        div(class="containSubmit")
+                            button(type="submit" class="inputSubmit")
+                                span(class="iconSend")
+                            
+                            
         section.main__sectionCards
             each value in data
                 include ./templates/card.pug
 
-include ./templates/footer.pug
+block footer
+    include ./templates/footer.pug
 script(src="/js/formAdd.js")
