@@ -8,4 +8,6 @@ router.post('/home', jobController.insert);
 
 router.get('/profile/:id', jobController.profile);
 
+router.get('/delete/:id', jobController.delete);
+
 module.exports = router;

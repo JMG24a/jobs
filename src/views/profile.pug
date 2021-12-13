@@ -1,30 +1,67 @@
--
-    const config = {
-        title : "Profile",
-        style : "/css/profile.css"
-    }   
-include ./templates/head.pug
-block header
-    include ./templates/header.pug
+each value in data
+    -
+        const config = {
+            title : "Profile",
+            style : "/css/profile.css",
+            h2DescriptonButton: "Completar informacion",
+            route: `/update/${value.id}`,
+            form: {
+                    name:`${value.name}`,
+                    email:`${value.email}`,
+                    age: `${value.age}`
+                },
+        }   
+    include ./templates/head.pug
+    block header
+        include ./templates/header.pug
 
-block main
-    main.main__container
-        div.main__sectionProfile
-            h2.main__title Informacion Basica
-                    section.profile__container
-                        div.card__profile
-                            span.iconProfile
-                            h3.card__titleProfile Informacion Personal
-                            each value in data
-                                p= `Nombre: ${value.name}`
-                                p= `Correo: ${value.email}`
-                                p= `Edad: ${value.age}`
-                                p= `Puesto: ${value.job}`
+    block main
+        main.main__container
 
+            include ./templates/deleteConfirm.pug
+            
+            div(class="options" id="options")
+                div(id="options__card" class="options__card__show")
+                    div.container__cancelar
+                        span(id="eButton__cancel" class="iconCancel") 
+                    h2.options__title Que Informacion deseas actualizar
+                    div.options__container__cardOptions
+                        div.container__options_buttons
+                            div(id="container__iconProfile" class="container__icon")
+                                h4.icon__title Perfil
+                                span.iconProfile
+                            div(id="container__iconAddress" class="container__icon")
+                                h4.icon__title Direccion
+                                span.iconAddress 
+                            div(id="container__iconAssigned" class="container__icon")   
+                                h4.icon__title Beneficios 
+                                span.iconBenefit
 
+                div(id="container_formEmployee" class="container_formEmployee") 
+                    span(id="formIconCancelEmployee" class="formIconCancelEmployee")
+                    include ./templates/formEmployee.pug
 
-           
+                div(id="container__formAddress" class="container__formAddress") 
+                    span(id="formIconCancelAddress" class="formIconCancelAddress")
+                    include ./templates/formAddress.pug
 
-block footer
-    include ./templates/footer.pug
+                div(id="container__formAssigned" class="container__formAssigned") 
+                    span(id="formIconCancelAssigned" class="formIconCancelAssigned") 
+                    include ./templates/formAssigned.pug
 
+            div.main__sectionProfile
+                h2.main__title Informacion Basica
+                    include ./templates/cardProfile.pug
+
+            include ./templates/addForm.pug
+                block addForm 
+                    include ./templates/formAddress.pug
+
+        include ./templates/workTable.pug
+
+            
+
+    block footer
+        include ./templates/footer.pug
+    script(src="/js/formAdd.js")
+    script(src="/js/deletePrevent.js")

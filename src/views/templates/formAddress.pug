@@ -1,0 +1,13 @@
+form(action=`/Address/${value.id}`, method="get" class="formActiveAddress")
+    label(for="country") Pais: 
+    input(type="text" name="country" id="country" placeholder="Pais")
+
+    label(for="city") Ciudad: 
+    input(type="text" name="city" id="city" placeholder="Ciudad") 
+
+    label(for="state") Estado: 
+    input(type="text" name="state" id="state" placeholder="Estado")
+
+    div(class="containSubmit")
+    button(type="submit" class="inputSubmit")
+        span(class="iconSend")

@@ -11,7 +11,6 @@ jobController.home = (req,res) =>{
           console.log(err);
         }
         data1 = rows  
-        console.log(rows)
         res.render('../views/home.pug',{
             data: rows,
         });
@@ -22,6 +21,7 @@ jobController.home = (req,res) =>{
 
 jobController.insert = (req,res) =>{
   const data = req.body;
+  console.log(data)
   req.getConnection((err,conn)=>{
     if(err){
       res.send(err)
@@ -44,14 +44,31 @@ jobController.profile = (req,res) =>{
     if(err){
       res.send(err);
     }else{
-      conn.query('SELECT * FROM Employees WHERE id = ?' [data.id] , (err,row) =>{
+      conn.query('SELECT * FROM Employees WHERE id = ?', [data.id] , (err,row) =>{
         if(err){
           res.send(err);
         }else{
+          console.log(row)
           res.render('../views/profile.pug',{
             data: row,
-          }
-          )
+          })
+        }
+      })
+    }
+  })
+}
+
+jobController.delete = (req,res) =>{
+  const data = req.params;
+  req.getConnection((err,conn) =>{
+    if(err){
+      res.send(err);
+    }else{
+      conn.query('DELETE FROM Employees WHERE id = ?', [data.id], (err,row)=>{
+        if(err){
+          res.send(err);
+        }else{
+          res.redirect('/home');
         }
       })
     }

@@ -1,0 +1,11 @@
+form(action=`/update/assigned/${value.id}` class="formActiveAssigned")
+    label(for="Casa") Otorgar casa al trabajador 
+        input(type="checkbox" name="house")
+    label(for="Automovil") Otorgar automovil al trabajador 
+        input(type="checkbox" name="auto")
+    label(for="aumento") Aumentar sueldo al trabajador 
+        input(type="checkbox" id="aumento" name="aumento")
+    
+    div(class="containSubmit")
+        button(type="submit" class="inputSubmit")
+            span(class="iconSend")

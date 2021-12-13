@@ -1,7 +1,14 @@
 -
     const config = {
         title : "Jobs",
-        style : "/css/index.css"
+        style : "/css/index.css",
+        h2DescriptonButton: 'Agrega nuevos empleados a la empresa',
+        route: '/home',
+        form: {
+                name:'Nombre',
+                email:'example.@mail.com',
+                age: 00
+            },
     }      
 include ./templates/head.pug
 block header
@@ -10,38 +17,9 @@ block header
 block main
     main.main__container 
         h2.main__title Trabajadores Actuales
-        div.main__containerButtom__formInactive#addForm
-            p.main__descriptionButton Agrega nuevos empleados a la empresa
-            button.buttonAgregarForm#buttonAddForm +
-            template#templateAddForm
-                div.container__form#containerForm
-                    form(action="/home", method="post" class="formActive") 
-                        
-                        label(for="name") Nombre y Apellido: 
-                        input(type="text" name="name" placeholder="Nombre" id="name") 
-                                
-                        label(for="email") Correo:
-                        input(type="text" id="email" name="email" placeholder="example@correo.com")
-
-                        label(for="job") Puesto:
-                        select(label="Puestos" name="job" id="job")
-                            option(label="Medico"  value="medico" )
-                            option(label="Programador"  value="programmer")
-                            option(label="Abogado"  value="lawyer")
-                        
-                        label(for="sexoM") Hombre: 
-                        input(type="radio" class="inputRadio" id="sexoM" name="sexo" value="Masculino") 
-                        label(for="sexoF") Mujer: 
-                        input(type="radio" class="inputRadio" id="sexoF" name="sexo" value="Femenino")
-                        
-                        label(for="age" class="labelNumber") Edad: 
-                        input(type="number" class="inputNumber" id="age" name="age" placeholder="00")
-                    
-                        div(class="containSubmit")
-                            button(type="submit" class="inputSubmit")
-                                span(class="iconSend")
-                            
-                            
+        include ./templates/addForm.pug
+            block addForm
+                include ./templates/formEmployee.pug
         section.main__sectionCards
             each value in data
                 include ./templates/card.pug

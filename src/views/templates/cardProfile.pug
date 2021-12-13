@@ -1,0 +1,11 @@
+section.profile__container
+    div.card__profile
+        span.iconProfile
+        h3.card__titleProfile Informacion Personal
+        p= `Nombre: ${value.name}`
+        p= `Correo: ${value.email}`
+        p= `Edad: ${value.age}`
+        p= `Puesto: ${value.job}`
+        div.card__iconsContainer
+            span(id="ePrevent" class="iconEdit")
+            span(id="dPrevent" class="iconDelete") 

@@ -1,0 +1,26 @@
+form(action=`${config.route}`, method="post" class="formActive" id="formActive") 
+                        
+    label(for="name") Nombre y Apellido: 
+    input(type="text" name="name" placeholder=`${config.form.name}` id="name") 
+                                
+    label(for="email") Correo:
+    input(type="text" id="email" name="email" placeholder=`${config.form.email}`)
+
+    label(for="job") Puesto:
+    select(label="Puestos" name="job" id="job")
+        option(label="Medico"  value="medico" )
+        option(label="Programador"  value="programmer")
+        option(label="Abogado"  value="lawyer")
+                        
+    label(for="sexoM") Hombre: 
+    input(type="radio" class="inputRadio" id="sexoM" name="sex" value="Masculino") 
+    label(for="sexoF") Mujer: 
+    input(type="radio" class="inputRadio" id="sexoF" name="sex" value="Femenino")
+                        
+    label(for="age" class="labelNumber") Edad: 
+    input(type="number" class="inputNumber" id="age" name="age" placeholder=`${config.form.age}`)
+
+    div(class="containSubmit")
+    button(type="submit" class="inputSubmit")
+        span(class="iconSend")
+
