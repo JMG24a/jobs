@@ -1,10 +1,20 @@
-each value in data
+each value in emp
+    if add[0]
+        - var directionD = 'updateD'
+    else
+        - var directionD = 'Address' 
+    if pro[0]
+        - var directionP = 'updateP'
+    else
+        - var directionP = 'assigned'     
     -
         const config = {
             title : "Profile",
             style : "/css/profile.css",
             h2DescriptonButton: "Completar informacion",
-            route: `/update/${value.id}`,
+            route: `/updateE/${value.id}`,
+            routeD: `/${directionD}/${value.id}`,
+            routeP: `/${directionP}/${value.id}`,
             form: {
                     name:`${value.name}`,
                     email:`${value.email}`,
@@ -29,13 +39,14 @@ each value in data
                         div.container__options_buttons
                             div(id="container__iconProfile" class="container__icon")
                                 h4.icon__title Perfil
-                                span.iconProfile
+                                span.iconProfile    
                             div(id="container__iconAddress" class="container__icon")
                                 h4.icon__title Direccion
-                                span.iconAddress 
+                                span.iconAddress    
                             div(id="container__iconAssigned" class="container__icon")   
                                 h4.icon__title Beneficios 
                                 span.iconBenefit
+
 
                 div(id="container_formEmployee" class="container_formEmployee") 
                     span(id="formIconCancelEmployee" class="formIconCancelEmployee")
@@ -48,14 +59,11 @@ each value in data
                 div(id="container__formAssigned" class="container__formAssigned") 
                     span(id="formIconCancelAssigned" class="formIconCancelAssigned") 
                     include ./templates/formAssigned.pug
-
+                    
             div.main__sectionProfile
                 h2.main__title Informacion Basica
                     include ./templates/cardProfile.pug
 
-            include ./templates/addForm.pug
-                block addForm 
-                    include ./templates/formAddress.pug
 
         include ./templates/workTable.pug
 
@@ -63,5 +71,4 @@ each value in data
 
     block footer
         include ./templates/footer.pug
-    script(src="/js/formAdd.js")
     script(src="/js/deletePrevent.js")

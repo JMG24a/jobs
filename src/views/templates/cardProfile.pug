@@ -9,3 +9,34 @@ section.profile__container
         div.card__iconsContainer
             span(id="ePrevent" class="iconEdit")
             span(id="dPrevent" class="iconDelete") 
+
+each adds in add
+  if adds.id
+        section.profile__container
+            div.card__profile   
+                span.iconProfile   
+                h3.card__titleProfile Direccion  
+                each adds in add
+                    p=`Pais: ${adds.country}`
+                    p=`Ciudad: ${adds.city}`
+                    p=`Estado: ${adds.state}`
+
+each pros in pro
+  if pros.id
+        section.profile__container
+            div.card__profile     
+                span.iconProfile
+                h3.card__titleProfile Descripcion del trabajador   
+                each pros in pro
+                    p=`Pais: ${pros.description}`
+
+each asses in ass
+  if asses.id
+        section.profile__container
+            div.card__profile
+                span.iconProfile
+                h3.card__titleProfile Beneficios asignados  
+                each asses in ass
+                    p=`Pais: ${asses.house}`
+                    p=`Ciudad: ${asses.car}`
+                    p=`Estado: ${asses.promotion}`

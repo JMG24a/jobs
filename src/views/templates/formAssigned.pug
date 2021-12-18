@@ -1,10 +1,15 @@
-form(action=`/update/assigned/${value.id}` class="formActiveAssigned")
-    label(for="Casa") Otorgar casa al trabajador 
-        input(type="checkbox" name="house")
-    label(for="Automovil") Otorgar automovil al trabajador 
-        input(type="checkbox" name="auto")
-    label(for="aumento") Aumentar sueldo al trabajador 
-        input(type="checkbox" id="aumento" name="aumento")
+form(action=`${config.routeP}` method="post" class="formActiveAssigned")
+    label(for="descriptionP" class="labelBox")= `Por que el trabajador ${config.form.name} este beneficio?`
+    input(type="area" class="inputBox" name="descriptionP" id="descriptionP")
+
+    label(for="house") Otorgar casa al trabajador 
+        input(type="checkbox" id="house" name="house")
+
+    label(for="car") Otorgar automovil al trabajador 
+        input(type="checkbox" id="car" name="car")
+
+    label(for="promotion") Aumentar sueldo al trabajador 
+        input(type="checkbox" id="promotion" name="promotion")
     
     div(class="containSubmit")
         button(type="submit" class="inputSubmit")

@@ -78,7 +78,7 @@ $container__iconAssigned.addEventListener('click', (e)=>{
 })
 
 $formIconCancelAssigned.addEventListener('click', (e) =>{
-    $container__formAddress.classList.remove('container__formAssigned__show'); 
+    $container__formAssigned.classList.remove('container__formAssigned__show'); 
     $options__card.classList.remove('options__card');
     $options__card.classList.add('options__card__show');
 })

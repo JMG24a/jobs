@@ -20,9 +20,15 @@ block main
         include ./templates/addForm.pug
             block addForm
                 include ./templates/formEmployee.pug
-        section.main__sectionCards
-            each value in data
-                include ./templates/card.pug
+        if data[0]
+            section.main__sectionCards
+                each value in data
+                    include ./templates/card.pug
+        else    
+            section.main__sectionCards
+                h3.main__sectionCards__title No hay trabajadores
+        
+
 
 block footer
     include ./templates/footer.pug
