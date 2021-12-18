@@ -4,3 +4,5 @@ env.js
 db
 css
 sass
+utils
+models
